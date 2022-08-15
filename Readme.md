@@ -43,30 +43,7 @@ This is a solution to the [Intro component with sign up form challenge on Fronte
 
 I learned how to do a simple Form validation with Javascript. 
 
-I had a lot of problems, because I was repeating a lot of code and I didn't like it, but after a  🍔, I had an 💡 and I managed to develop a more optimal code whit this 2 functions: 
-
-```
-  function validarFormularios(input, i) {
-    if (
-      input.value.length === 0 ||
-      (i === 2 && !emailValidation.test(input.value))
-    ) {
-      inputContainers[i].classList.add("inputError");
-      error[i].classList.add("showError");
-      iconError[i].classList.add("showError");
-      return false;
-    }
-    return true;
-  }
-
-  function quitarErrores(i) {
-    inputContainers[i].classList.remove("inputError");
-    error[i].classList.remove("showError");
-    iconError[i].classList.remove("showError");
-  }
-
-```
-
+I had a lot of problems, because I was repeating a lot of code and I didn't like it, but after a  🍔, I had an 💡 and I managed to develop.
 ## Author
 
 - Frontend Mentor - [@Ang3l-SPF](https://www.frontendmentor.io/profile/Ang3l-SPF)
