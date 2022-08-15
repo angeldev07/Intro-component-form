@@ -21,70 +21,69 @@ const infoForm = {
   lastName: true,
   email: true,
   password: true,
-};
 
-function validar(infoForm, input, i) {
-  switch (i) {
-    case 0:
-      infoForm.firtName = validarFormulario(input, i);
-      if (infoForm.firtName) activarErrores(i);
-      else quitarErrores(i);
-      break;
+  validar(input, i) {
 
-    case 1:
-      infoForm.lastName = validarFormulario(input, i);
-      if (infoForm.lastName) activarErrores(i);
-      else quitarErrores(i);
-      break;
+    switch (i) {
+      case 0:
+        this.firtName = this.validarFormulario(input, i);
+        if (this.firtName) this.activarErrores(i);
+        else this.quitarErrores(i);
+        break;
+  
+      case 1:
+        this.lastName = this.validarFormulario(input, i);
+        if (this.lastName) this.activarErrores(i);
+        else this.quitarErrores(i);
+        break;
+  
+      case 2:
+        this.email = this.validarFormulario(input, i);
+        if (this.email) this.activarErrores(i);
+        else this. quitarErrores(i);
+        break;
+  
+      case 3:
+        this.password = this.validarFormulario(input, i);
+        if (this.password) this.activarErrores(i);
+        else this.quitarErrores(i);
+        break;
+    }
+  },
 
-    case 2:
-      infoForm.email = validarFormulario(input, i);
-      if (infoForm.email) activarErrores(i);
-      else quitarErrores(i);
-      break;
+  validarFormulario(input, i) {
+    return (
+      input.value.length === 0 || (i === 2 && !emailValidation.test(input.value))
+    );
+  },
 
-    case 3:
-      infoForm.password = validarFormulario(input, i);
-      if (infoForm.password) activarErrores(i);
-      else quitarErrores(i);
-      break;
+  activarErrores(i) {
+    inputContainers[i].classList.add("inputError");
+    error[i].classList.add("showError");
+    iconError[i].classList.add("showError");
+  }, 
 
-    default:
-      break;
+  quitarErrores(i) {
+    inputContainers[i].classList.remove("inputError");
+    error[i].classList.remove("showError");
+    iconError[i].classList.remove("showError");
   }
-}
 
-function validarFormulario(input, i) {
-  return (
-    input.value.length === 0 || (i === 2 && !emailValidation.test(input.value))
-  );
-}
-
-function activarErrores(i) {
-  inputContainers[i].classList.add("inputError");
-  error[i].classList.add("showError");
-  iconError[i].classList.add("showError");
-}
-
-function quitarErrores(i) {
-  inputContainers[i].classList.remove("inputError");
-  error[i].classList.remove("showError");
-  iconError[i].classList.remove("showError");
-}
+};
 
 btnSumit.addEventListener("click", (e) => {
 
   e.preventDefault();
 
   inputs.forEach((input, i) => {
-    validar(infoForm, input, i);
+    infoForm.validar(input, i);
   });
 
   if (
-    !infoForm['firtName'] &&
-    !infoForm['lastName'] &&
-    !infoForm['email'] &&
-    !infoForm['password']
+    !infoForm.firtName &&
+    !infoForm.lastName &&
+    !infoForm.email &&
+    !infoForm.password
   ) {
     window.location.reload()
   }
