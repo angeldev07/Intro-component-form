@@ -90,7 +90,6 @@ body{
 
 /* Input container style */
 .input-container{
-    /* background-color: salmon; */
     margin-bottom: 1rem;
 }
 
@@ -101,6 +100,7 @@ body{
     height: 3rem;
     border-radius: .4rem;
     border: 1px solid var(--text-color);
+    color: var(--text-color);
 }
 
 .input-form{
@@ -128,6 +128,7 @@ body{
     padding: .2em;
     text-align: right;
     font-size: .75rem;
+    font-style: italic;
     font-weight: 500;
     color: var(--error);
 }
@@ -168,12 +169,18 @@ body{
     outline: 1px solid var(--text-color);
 }
 
-.input-form:focus{
-    outline: 2px solid var(--text-color);
-}
-
 .input-btn:hover{
     background-color: hsl(154, 59%, 55%);
+}
+
+/* States error  */
+
+.showError{
+    display: block;
+}
+
+.inputError{
+    outline: 1px solid var(--error);
 }
 
 
