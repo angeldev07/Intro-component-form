@@ -17,8 +17,10 @@ const emailValidation =
 let goodInput = true;
 
 function validarFormularios(input, i) {
-
-  if (input.value.length === 0 || (i===2 && !emailValidation.test(input.value)) )  {
+  if (
+    input.value.length === 0 ||
+    (i === 2 && !emailValidation.test(input.value))
+  ) {
     inputContainers[i].classList.add("inputError");
     error[i].classList.add("showError");
     iconError[i].classList.add("showError");
@@ -27,21 +29,18 @@ function validarFormularios(input, i) {
   return true;
 }
 
-function quitarErrores(input,i) {
-    inputContainers[i].classList.remove("inputError");
-    error[i].classList.remove("showError");
-    iconError[i].classList.remove("showError");
+function quitarErrores(i) {
+  inputContainers[i].classList.remove("inputError");
+  error[i].classList.remove("showError");
+  iconError[i].classList.remove("showError");
 }
 
-
-
 btnSumit.addEventListener("click", (e) => {
-  
   e.preventDefault();
 
   inputs.forEach((input, i) => {
-        goodInput = validarFormularios(input, i);
-        if(goodInput) quitarErrores(input,i)
+    goodInput = validarFormularios(input, i);
+    if (goodInput) quitarErrores(i);
   });
 
   if (goodInput) {
