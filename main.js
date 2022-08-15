@@ -78,7 +78,6 @@ btnSumit.addEventListener("click", (e) => {
 
   inputs.forEach((input, i) => {
     validar(infoForm, input, i);
-    console.log(infoForm);
   });
 
   if (
